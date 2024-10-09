@@ -32,10 +32,10 @@ console.log(Math.ceil(servicePercentPrice), 'Итоговая сумма про�
 
 if (fullPrice > 50000) {
     console.log('сделаем скидку в 10%');
-} else if (20000 < fullPrice <= 50000) {
+} else if (fullPrice > 20000 && fullPrice <= 50000) {
     console.log('сделаем скидку 5%');
-} else if (0 <= fullPrice <= 20000) {
+} else if (fullPrice <= 20000 && fullPrice > 0) {
     console.log('скидка не предусмотрена');
-} else if (fullPrice < 0) {
+} else if (fullPrice <= 0) {
     console.log('Что то пошло не так');
 }
