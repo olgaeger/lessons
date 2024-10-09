@@ -13,7 +13,7 @@ let service2 = prompt('Какой еще сервис тебе нужен?');
 let servicePrice2 = prompt('Сколько будет стоить этот второй сервис?');
 
 let screenPrice = 5000;
-let fullPrice = screenPrice + servicePrice1 + servicePrice2;
+let fullPrice = +screenPrice + +servicePrice1 + +servicePrice2;
 if (fullPrice > 50000) {
     console.log('сделаем скидку в 10%');
 } else if (20000 < fullPrice <= 50000) {
