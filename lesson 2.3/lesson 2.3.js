@@ -20,12 +20,13 @@ if (fullPrice > 50000) {
     console.log('сделаем скидку 5%');
 } else if (0 < fullPrice <= 20000) {
     console.log('скидка не предусмотрена');
-} else if (fullPrice < 0) {
+} else if (fullPrice <= 0) {
     console.log('Что то пошло не так');
 }
 
-let percentage = fullPrice * 0.15;
-let servicePercentPrice = fullPrice - percentage;
+let percentage = 15;
+let percentageResult = fullPrice - percentage/100;
+let servicePercentPrice = fullPrice - percentageResult;
 servicePercentPrice = Math.round(servicePercentPrice);
 
 console.log(servicePercentPrice);
