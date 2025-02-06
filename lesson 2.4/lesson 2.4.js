@@ -27,46 +27,42 @@ console.log(service2);
 let servicePrice2 = +prompt('Сколько будет стоить этот второй сервис?');
 console.log(servicePrice2);
 
-let fullPrice = screenPrice + servicePrice1 + servicePrice2;
+
+
+//объявление функции getAllServicePrices с помощью метода "function expression"
+const getAllServicePrices = function(){
+    return servicePrice1 + servicePrice2;//возврат стоимости всех дополнительных услуг.
+}
+
+let allServicePrices = getAllServicePrices(); //Результат функции getAllServicePrices записываем в переменную allServicePrices
+
+let fullPrice;
+//объявление функции getFullPrice с помощью метода "function declaration"
+function getFullPrice(){
+    return allServicePrices + screenPrice;
+}
+
+fullPrice = getFullPrice();
+console.log(fullPrice, 'Полная стоимость проекта');
 
 let percentageResult = +(fullPrice * (percentage / 100));
 console.log(percentageResult, 'Процент подрядчику');
 
-let servicePercentPrice = fullPrice - percentageResult;
-
-
-//объявление переменной "все дополнительные услуги"
-let services = servicePrice1 + servicePrice2;
-
-//объявление функции getAllServicePrices с помощью метода "function expression"
-const getAllServicePrices = function(){
-    console.log(services, 'Все дополнительные услуги');//возврат стоимости всех дополнительных услуг.
-}
-
-let allServicePrices = getAllServicePrices (); //Результат функции getAllServicePrices записываем в переменную allServicePrices
-
-
-//объявление функции getFullPrice с помощью метода "function declaration"
-getFullPrice()
-
-function getFullPrice(){
-    return fullPrice;
-}
-
 const getServicePercentPrices = function(){
-    console.log(Math.ceil(servicePercentPrice), 'Итоговая сумма проекта за вычетом % подрядчику');
+    return Math.ceil(fullPrice - percentageResult);
 }
 
-servicePercentPrice = getServicePercentPrices();
+let servicePercentPrice = getServicePercentPrices();
+console.log(servicePercentPrice, 'Итоговая стоимость после вычета % подрядчику');
 
 const getRollbackMessage = function() {
     if (fullPrice > 50000) {
         console.log('сделаем скидку в 10%');
     } else if (fullPrice > 20000 && fullPrice <= 50000) {
         console.log('сделаем скидку 5%');
-    } else if (fullPrice <= 20000 && fullPrice > 0) {
+    } else if (fullPrice > 0) {
         console.log('скидка не предусмотрена');
-    } else if (fullPrice <= 0) {
+    } else {
         console.log('Что то пошло не так');
     }
 }
