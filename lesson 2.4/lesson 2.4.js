@@ -55,7 +55,7 @@ const getServicePercentPrices = function(){
 let servicePercentPrice = getServicePercentPrices();
 console.log(servicePercentPrice, 'Итоговая стоимость после вычета % подрядчику');
 
-const getRollbackMessage = function() {
+const getRollbackMessage = function(){
     if (fullPrice > 50000) {
         console.log('сделаем скидку в 10%');
     } else if (fullPrice > 20000 && fullPrice <= 50000) {
@@ -69,7 +69,7 @@ const getRollbackMessage = function() {
 
 getRollbackMessage();
 
-const getTitle = function () {
+const getTitle = function(){
     if (titleProject) {
         // Преобразуем первый символ в заглавный, остальные в строчные
         titleProject = titleProject[0].toUpperCase() + titleProject.slice(1).toLowerCase();
